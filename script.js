@@ -305,7 +305,7 @@ let formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
 
     // Save PDF with timestamp in the filename
     doc.save(`prescription_${patientName}_${timestamp}.pdf`);
-	alert("Y");
+	
 	copyPrescriptionDetails();
 }
 
