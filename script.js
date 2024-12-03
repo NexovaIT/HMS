@@ -67,11 +67,17 @@ function generatePrescription() {
 }
 
 function generateBill() {
-    const patientName = document.getElementById("billingPatientSelect").value;
+   /* const patientName = document.getElementById("billingPatientSelect").value;*/
     const currency = document.getElementById("currency").value;
     const billAmount = document.getElementById("billAmount").value;
     const prescriptionDetails = document.getElementById("savedPrescriptionDetails").value;
+let dropdown = document.getElementById("patientSelect");
 
+	// Get the selected option
+	let selectedOption = dropdown.options[dropdown.selectedIndex];
+
+	// Get the text value of the selected option
+	let patientName = selectedOption.text;
     if (!patientName || !billAmount) {
         alert("Please select a patient and enter the bill amount.");
         return;
