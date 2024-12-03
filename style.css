@@ -289,3 +289,35 @@ body {
   background-attachment: fixed;
   font-family: Arial, sans-serif;
 }
+/* Common Tile Styling */
+.tile {
+    display: inline-block;
+    width: 200px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    margin: 10px; /* Default spacing between tiles */
+    text-align: center;
+    vertical-align: top;
+    background-color: #f4f4f4; /* Background color for tiles */
+    border: 1px solid #ddd; /* Optional: Tile border */
+    border-radius: 5px; /* Optional: Rounded corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Shadow */
+}
+
+/* Main Tiles (Top Group) */
+#main-tiles {
+    display: flex;
+    justify-content: center; /* Center-align horizontally */
+    gap: 20px; /* Default gap between tiles */
+}
+
+/* Patient Details Tile (4th Tile) */
+#patient-details-tile {
+    display: flex;
+    justify-content: center; /* Center-align horizontally */
+    margin-top: 30px; /* Increase vertical gap between 3rd and 4th tiles */
+}
+
+/* Tile for Patient Details */
+#patient-details-tile .tile {
+    margin: 0; /* Reset any additional margins */
+}
