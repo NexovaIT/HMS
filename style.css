@@ -320,4 +320,38 @@ body {
 /* Tile for Patient Details */
 #patient-details-tile .tile {
     margin: 0; /* Reset any additional margins */
+}/* Main Tiles (Horizontal Layout for All Tiles) */
+#main-tiles {
+    display: flex;
+    justify-content: center; /* Center-align horizontally */
+    gap: 20px; /* Space between tiles */
+}
+
+/* Tile Styling */
+.tile {
+    width: 200px;
+    height: 200px;
+    background: #f4f6f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover Effects */
+.tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for the Patient Details Tile */
+.patient-details-tile {
+    background-color: #93E9BE; /* Optional: Different color for distinction */
+    color: #fff; /* Optional: White text for contrast */
+}
+
+.patient-details-tile:hover {
+    background-color: #83d9ae; /* Optional: Slightly darker shade on hover */
 }
