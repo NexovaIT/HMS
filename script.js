@@ -67,11 +67,10 @@ function generatePrescription() {
 }
 
 function generateBill() {
-    
+    const patientName = document.getElementById("billingPatientSelect").value;
     const currency = document.getElementById("currency").value;
     const billAmount = document.getElementById("billAmount").value;
     const prescriptionDetails = document.getElementById("savedPrescriptionDetails").value;
-	
 
     if (!patientName || !billAmount) {
         alert("Please select a patient and enter the bill amount.");
@@ -300,7 +299,7 @@ let formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
 
     // Save PDF with timestamp in the filename
     doc.save(`prescription_${patientName}_${timestamp}.pdf`);
-	
+	alert("Y");
 	copyPrescriptionDetails();
 }
 
@@ -308,7 +307,7 @@ let formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
 populatePatientSelects();
 
 function copyPrescriptionDetails() {
-	
+	alert("t");
     // Get the value of the prescription details textarea
     const prescriptionDetails = document.getElementById('prescriptionDetails').value;
     
