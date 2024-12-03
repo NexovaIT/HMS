@@ -1,104 +1,291 @@
-/* Main styles for the body and headings */
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
+    background-color: #3a6ea5;
+    color: #fff;
+    padding: 20px;
+    width: 100%;
     text-align: center;
+    margin: 0;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Tile styles */
+h2 {
+    color: #3a6ea5;
+    margin-top: 0;
+}
+
+/* Tile Navigation */
 #tiles {
     display: flex;
-    gap: 20px;
     justify-content: center;
+    gap: 20px;
     margin: 20px 0;
 }
 
 .tile {
-    width: 150px;
-    text-align: center;
-    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+    padding: 20px;
+    background-color: #fff;
     border-radius: 8px;
-    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, background-color 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.tile:nth-child(1) { background-color: #b3e5fc; }
-.tile:nth-child(2) { background-color: #ffcc80; }
-.tile:nth-child(3) { background-color: #c5e1a5; }
-.tile:nth-child(4) { background-color: #ffab91; }
 
 .tile:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Content section visibility */
+.tile img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.tile h3 {
+    color: #3a6ea5;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Form Sections */
 .content-section {
     display: none;
-    padding: 20px;
-    border: 2px solid transparent;
+    width: 80%;
+    max-width: 950px;
+    margin-top: 20px;
+    padding: 25px;
+    background-color: #fff;
     border-radius: 8px;
-    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.active {
+.content-section.active {
     display: block;
-    border-color: #5c6bc0;
-    background-color: #e8eaf6;
 }
 
-/* Form layout */
+/* Form Styling */
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.form-grid input, 
+.form-grid select, 
+.form-grid textarea {
+    width: 100%;
+	height:fit-content;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+/* Buttons */
+button {
+    grid-column: span 2;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3a6ea5;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2a5491;
+}
+
+/* Highlight Active Section */
+.active-tile {
+    border: 2px solid #3a6ea5;
+    background-color: #eaf3fa;
+}
+
+/* Currency Select */
+#currency {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #tiles {
+        flex-direction: column;
+    }
+
+    .tile {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+.tile i {
+    margin-bottom: 10px;
+}
+
+.tile h3 {
+    font-size: 18px;
+    color: #3a6ea5;
+    text-align: center;
+    margin-top: 5px;
+}
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #3a6ea5;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #2a5491;
+}
+
+/* Patient Details Grid */
+.patient-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 
-.form-grid input, .form-grid select, .form-grid textarea {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
+.patient-details-item {
+    background-color: #eaf3fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.form-grid textarea {
-    grid-column: span 2;
+.patient-details-item h4 {
+    margin: 0;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
 }
 
-.form-grid button {
-    grid-column: span 2;
-    padding: 10px;
+.patient-details-item p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
 }
-
-
 
 /* Container for all tiles */
-#main-tiles {
-  display: flex;          /* Arrange tiles in a row */
-  justify-content: center; /* Center the tiles horizontally */
-  gap: 20px;              /* Space between tiles */
-  margin: 20px 0;         /* Top and bottom margins for the group */
+#tiles {
+  display: flex;
+  flex-direction: column; /* Arrange groups vertically */
+  align-items: center;    /* Center both groups horizontally */
+  gap: 60px;              /* Increase space between the two groups */
+  margin-top: 20px;
 }
 
-/* Individual Tile Styling */
-.tile {
+/* First group of tiles (horizontal layout) */
+#main-tiles {
+  display: flex;          /* Arrange tiles in a row */
+  gap: 20px;              /* Space between individual tiles */
+  justify-content: center; /* Center the group within the container */
+}
+
+/* Second group (Patient Details tile centered) */
+#patient-details-tile {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center; /* Center the single tile */
+  margin-top: 40px;        /* Additional space above the fourth tile */
+}
+
+/* Styles for individual tiles */
+.tile {
   width: 200px;
   height: 150px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #f4f6f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
 }
 
 .tile:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.tile i {
+  margin-bottom: 10px;
+}
+
+.tile h3 {
+  font-size: 18px;
+  color: #2471a3;
+  margin: 10px 0 0;
+}
+
+/* Style for the Patient Details tile */
+.patient-details-tile {
+  background-color: light-blue; /* Initial background color */
+  color: white; /* Change text color to white for better contrast */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover effects for the Patient Details tile */
+.patient-details-tile:hover {
+  background-color:#93E9BE  ; /* Change background color on hover */
+  transform: scale(1.1); /* Slightly scale up the tile */
+}
+
+body {
+  background-image: url('https://images.pexels.com/photos/5206940/pexels-photo-5206940.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+}
