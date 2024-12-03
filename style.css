@@ -348,10 +348,8 @@ body {
 
 /* Styling for the Patient Details Tile */
 .patient-details-tile {
-   ** background-color: #93E9BE; /* Optional: Different color for distinction */
+   /* background-color: #93E9BE; */ /* Optional: Different color for distinction */
     color: #fff; /* Optional: White text for contrast */
 }
 
-.patient-details-tile:hover {
-   ** background-color: #83d9ae; /* Optional: Slightly darker shade on hover */
-}
+
