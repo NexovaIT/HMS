@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Link -->
+ <!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23cez/3paNdF+Zp4Da71rc7T35tvkAih7rBr" crossorigin="anonymous">
+	-->
+<!--	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-DyZ88mC6Up2uqS1tfEZ5hzWr2QEYfW4uFfvvHPhzz73TbpT0Pd5kYX5GdZfTGP4b" crossorigin="anonymous">
+-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+</head>
+<body>
+
+   <h1>Nexova Hospital Management System (Prototype)</h1> 
+	
+
+	
+<div id="tiles">
+    <!-- First Group (Horizontal Tiles) -->
+    <div id="main-tiles">
+      <div class="tile" onclick="showSection('patient-registration')">
+        <i class="fa fa-h-square" style="font-size:48px;color:#2471a3"></i>
+        <h3>Patient Registration</h3>
+      </div>
+      <div class="tile" onclick="showSection('prescription-generation')">
+        <i class="fa fa-medkit" style="font-size:48px;color:#2471a3"></i>
+        <h3>Prescription Generation</h3>
+      </div>
+      <div class="tile" onclick="showSection('billing')">
+        <i class="fa fa-hospital-o" style="font-size:48px;color:#2471a3"></i>
+        <h3>Billing</h3>
+      </div>
+    </div>
+
+    <!-- Separate Section (Centered Tile) -->
+    <div id="patient-details-tile">
+      <div class="tile patient-details-tile" onclick="showSection('reports')">
+        <i class="fa fa-wheelchair" style="font-size:48px;color:#2471a3"></i>
+        <h3>Patient Details</h3>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+    <!-- Sections (Initially Hidden) -->
+    <section id="patient-registration" class="content-section">
+        <h2>Patient Registration</h2>
+        <form id="registerForm" class="form-grid">
+            <!-- Basic Information -->
+            <input type="text" id="patientName" placeholder="Patient Name" required>
+            <input type="number" id="age" placeholder="Age" required>
+            <input type="text" id="contact" placeholder="Contact Number" required>
+            
+            <!-- Additional Patient Details -->
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="text" id="emergencyContact" placeholder="Emergency Contact Number" required>
+            <select id="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="text" id="bloodType" placeholder="Blood Type (e.g., O+, A-)" required>
+            <input type="text" id="allergies" placeholder="Allergies (if any)">
+            
+            <!-- Medical Information -->
+            <input type="text" id="medicalHistory" placeholder="Medical History">
+            <textarea id="currentMedications" placeholder="Current Medications"></textarea>
+            <textarea id="notes" placeholder="Additional Notes"></textarea>
+            
+            <!-- Submit Button (Full Width) -->
+            <button type="button" onclick="registerPatient()">Register Patient</button>
+        </form>
+    </section>
+
+    <section id="prescription-generation" class="content-section">
+        <h2>Prescription Generation</h2>
+        <form id="prescriptionForm" class="form-grid">
+            <select id="patientSelect"></select>
+            <textarea id="prescriptionDetails" placeholder="Prescription Details" required></textarea>
+            <button type="button" onclick="generatePrescriptionPDF()">Generate Prescription & Download</button>
+        </form>
+    </section>
+
+   <section id="billing" class="content-section">
+        <h2>Billing</h2>
+        <form id="billingForm" class="form-grid">
+            <select id="billingPatientSelect" onchange="loadPrescriptionDetails()">
+                <option value="" disabled selected>Select Patient</option>
+            </select>
+            
+            <!-- Currency and Bill Amount -->
+            <select id="currency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="INR">INR</option>
+            </select>
+            <input type="number" id="billAmount" placeholder="Amount" required>
+
+            <!-- Display Prescription Details -->
+            <textarea id="savedPrescriptionDetails" placeholder="Prescription Details" readonly></textarea>
+
+            <button type="button" onclick="generateBill()">Generate Bill & Download</button>
+        </form>
+    </section>
+
+   <!-- <section id="reports" class="content-section">
+        <h2>Patient Details</h2>
+        <input type="text" id="searchPatientName" placeholder="Enter Patient Name">
+        <button onclick="searchPatient()">Search</button>
+        <div id="searchOutput"></div>
+    </section> -->
+	
+	<div id="reports" class="content-section">
+    <h2>Patient Details</h2>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Enter patient name">
+        <button onclick="searchPatient()">Search</button>
+		<button onclick="showAllPatients()">Show All Patients</button>
+		<button onclick="exportPatientDetails()">Export Details</button>
+    </div>
+    <div id="patientDetailsContainer" class="patient-details-grid">
+        <!-- Patient details will be populated here -->
+    </div>
+	
+</div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+	
+
+  background-image: url('https://www.example.com/path/to/your/image.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire screen */
+  background-position: center center; /* Centers the image */
+  background-attachment: fixed; /* Keeps the background fixed when scrolling */
+  font-family: Arial, sans-serif; /* Optional, for better font styling */
+
+</body>
+</html>
