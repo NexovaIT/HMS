@@ -313,7 +313,7 @@ let formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
 populatePatientSelects();
 
 function copyPrescriptionDetails() {
-	alert("t");
+	
     // Get the value of the prescription details textarea
     const prescriptionDetails = document.getElementById('prescriptionDetails').value;
     
