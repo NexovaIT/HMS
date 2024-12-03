@@ -78,7 +78,7 @@ function generateBill() {
 
 	// Get the text value of the selected option
 	let patientName = selectedOption.text;
-
+alert(patientName);
     if (!patientName || !billAmount) {
         alert("Please select a patient and enter the bill amount.");
         return;
