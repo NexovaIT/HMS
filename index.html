@@ -21,24 +21,26 @@
 
 	
 <div id="tiles">
-    <!-- First Group (Horizontal Tiles) -->
-    <div id="main-tiles">
-      <div class="tile" onclick="showSection('patient-registration')">
-        <i class="fa fa-h-square" style="font-size:48px;color:#2471a3"></i>
-        <h3>Patient Registration</h3>
-      </div>
-      <div class="tile" onclick="showSection('prescription-generation')">
-        <i class="fa fa-medkit" style="font-size:48px;color:#2471a3"></i>
-        <h3>Prescription Generation</h3>
-      </div>
-      <div class="tile" onclick="showSection('billing')">
-        <i class="fa fa-hospital-o" style="font-size:48px;color:#2471a3"></i>
-        <h3>Billing</h3>
-      </div>
+  <!-- All Tiles in One Group -->
+  <div id="main-tiles">
+    <div class="tile">
+      <i class="fa fa-h-square" style="font-size:48px;color:#2471a3"></i>
+      <h3>Patient Registration</h3>
     </div>
-
-    <!-- Separate Section (Centered Tile) -->
-    <div id="patient-details-tile">
+    <div class="tile">
+      <i class="fa fa-medkit" style="font-size:48px;color:#2471a3"></i>
+      <h3>Prescription Generation</h3>
+    </div>
+    <div class="tile">
+      <i class="fa fa-hospital-o" style="font-size:48px;color:#2471a3"></i>
+      <h3>Billing</h3>
+    </div>
+    <div class="tile patient-details-tile">
+      <i class="fa fa-wheelchair" style="font-size:48px;color:#2471a3"></i>
+      <h3>Patient Details</h3>
+    </div>
+  </div>
+</div>v id="patient-details-tile">
       <div class="tile patient-details-tile" onclick="showSection('reports')">
         <i class="fa fa-wheelchair" style="font-size:48px;color:#2471a3"></i>
         <h3>Patient Details</h3>
